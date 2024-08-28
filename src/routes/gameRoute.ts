@@ -21,7 +21,8 @@ router.get('/', (req: Request, res: Response) => {
         Snake: calculateSnakePos(h, w, Fruit)
     }
 
-    let marshalledState = JSON.stringify(state)
+    let marshalledState = JSON.stringify(state);
+    res.set('Content-Type', 'application/json');
     res.status(200).send(marshalledState);
 });
 
